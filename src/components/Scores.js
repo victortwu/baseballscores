@@ -7,15 +7,15 @@ const Scores = (props) => {
   const d = `${wholeDate.getDate()}`
   const month = (m.length < 2) ? '0' + m : m
   const day = (d.length < 2) ? '0' + d : d
-
-  const dateFormat = `${year}-${month}-${day}`
+  // accesses today's date in YYYY-MM-DD format
+  const todayDateFormat = `${year}-${month}-${day}`
 
   const [data, setData] = useState([])
-  const query = `games?league=1&season=${year}&date=${dateFormat}`
+  const query = `games?league=1&season=${year}&date=`
 
 
-  const getScores = () => {
-    fetch(props.baseURL + query, {
+  const getScores = (date) => {
+    fetch(props.baseURL + query + date, {
       method: 'GET',
       headers: {
         'x-rapidapi-key': props.apiKey,
@@ -32,13 +32,44 @@ const Scores = (props) => {
   }
 
   useEffect(()=> {
-    getScores()
+    getScores(todayDateFormat)
   }, [])
 
   console.log(data)
 
 return(
+  <>
     <h1>Scores</h1>
+    <button onClick={()=> getScores('2021-07-31')}>get another date</button>
+    {
+      data.map(game=> {
+
+        return(
+          <div key={game.id}>
+            <table>
+              <tbody>
+                <tr>
+                  <td><img src={game.teams.away.logo}/></td>
+                  <td>{game.teams.away.name}</td>
+                  <td>{game.scores.away.total}</td>
+                  <td>{game.status.short}</td>
+                </tr>
+                <tr>
+                <td><img src={game.teams.home.logo}/></td>
+                <td>{game.teams.home.name}</td>
+                <td>{game.scores.home.total}</td>
+                <td>{game.time}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )
+
+      })
+
+    }
+
+  </>
   )
 }
 
