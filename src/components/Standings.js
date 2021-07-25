@@ -8,19 +8,18 @@ import NLCentralStandings from './NLCentralStandings'
 
 
 
-const Standings = () => {
+const Standings = (props) => {
 
-    const baseURL = "https://api-baseball.p.rapidapi.com/standings?league=1&season="
-    let year = new Date().getFullYear()
-    const apiKey = "ee67489d8cmsh29097b32d44f898p17138bjsnfac4ccc33688"
+    const year = new Date().getFullYear()
+    const query = `standings?league=1&season=${year}`
 
     const [data, setData] = useState([])
 
     const getStandings =()=> {
-      fetch( baseURL + year, {
+      fetch( props.baseURL + query, {
         method: 'GET',
         headers: {
-          'x-rapidapi-key': apiKey,
+          'x-rapidapi-key': props.apiKey,
           'x-rapidapi-host': 'api-baseball.p.rapidapi.com'
         }
       })
