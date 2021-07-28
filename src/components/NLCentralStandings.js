@@ -1,45 +1,62 @@
 import React from 'react'
+import { calcGB } from '../services/calcGB'
 
 const NLCentralStandings = (props) => {
+  const division = {title: 'NL Central', division: 'NL Central'}
 
-return(
-  <div className='divisionContainer'>
-    <h1>NL Central</h1>
-    <div className='tableContainer'>
+  const firstPlace = props.data.filter(team=> {
+    if (team.group.name === division.division && team.position === 1){
+      return team
+    }
+  })
 
-      <table>
-        <tbody>
-          <tr>
-            <td>TEAM</td>
-            <td>{''}</td>
-            <td>W</td>
-            <td>L</td>
-            <td>Pct.</td>
-          </tr>
-          {
-            props.data.map((team, i) => {
-                const key = i + Date.now() + team.team.name
-                if ( team.group.name === 'NL Central' ) {
-                  return(
-                    <tr key={key}>
-                      <td>{team.team.logo}</td>
-                      <td>{team.team.name}</td>
-                      <td>{team.games.win.total}</td>
-                      <td>{team.games.lose.total}</td>
-                      <td>{team.games.win.percentage}</td>
-                    </tr>
+  return(
+    <div className='divisionContainer'>
+      <h1>{division.title}</h1>
+      <div className='tableContainer'>
 
+        <table>
+          <tbody>
+            <tr>
+              <td>TEAM</td>
+              <td>{''}</td>
+              <td>W</td>
+              <td>L</td>
+              <td>Pct.</td>
+              <td>GB</td>
+            </tr>
+            {
+              props.data.map((team, i) => {
+                  const key = i + Date.now() + team.team.name
 
-                  )
-                }
-              })
-          }
-        </tbody>
-      </table>
+                  if ( team.group.name === `${division.division}` ) {
 
+                    return(
+                      <tr key={key}>
+                        <td id='standingsLogo'><img src={team.team.logo}/></td>
+                        <td>{team.team.name}</td>
+                        <td>{team.games.win.total}</td>
+                        <td>{team.games.lose.total}</td>
+                        <td>{team.games.win.percentage}</td>
+                        <td>{
+                          calcGB(team.position,
+                            team.games.win.total,
+                            team.games.lose.total,
+                            firstPlace
+                            )
+                        }
+                        </td>
+                      </tr>
+                    )
+                  }
+                })
+            }
+          </tbody>
+        </table>
+
+      </div>
     </div>
-  </div>
-  )
+    )
 }
 
 export default NLCentralStandings

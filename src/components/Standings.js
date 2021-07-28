@@ -41,7 +41,7 @@ const Standings = (props) => {
     const toggleLeague =()=> {
       showAl ? setShowAl(false) : setShowAl(true)
     }
-    console.log(data)
+    // console.log(data)
   return(
     <>
     <button onClick={()=> toggleLeague()}>{

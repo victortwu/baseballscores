@@ -48,7 +48,7 @@ const Scores = (props) => {
   }
 
 
-console.log(data)
+// console.log(data)
 return(
   <>
     <h1>Scores</h1>
