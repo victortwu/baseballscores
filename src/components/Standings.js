@@ -14,6 +14,7 @@ const Standings = (props) => {
     const query = `standings?league=1&season=${year}`
 
     const [data, setData] = useState([])
+    const [showAl, setShowAl] = useState(true)
 
     const getStandings =()=> {
       fetch( props.baseURL + query, {
@@ -37,17 +38,34 @@ const Standings = (props) => {
       getStandings()
     }, [])
 
-
+    const toggleLeague =()=> {
+      showAl ? setShowAl(false) : setShowAl(true)
+    }
+    console.log(data)
   return(
     <>
-    <h1>AMERICAN LEAGUE</h1>
-    <ALWestStandings data={data}/>
-    <ALEastStandings data={data}/>
-    <ALCentralStandings data={data}/>
-    <h1>NATIONAL LEAGUE</h1>
-    <NLWestStandings data={data}/>
-    <NLEastStandings data={data}/>
-    <NLCentralStandings data={data}/>
+    <button onClick={()=> toggleLeague()}>{
+      showAl ? 'National League' : 'American League'
+    }</button>
+
+    {
+      showAl ?   <div className='alStandingsContainer'>
+                    <h1>AMERICAN LEAGUE</h1>
+                      <ALWestStandings data={data}/>
+                      <ALEastStandings data={data}/>
+                      <ALCentralStandings data={data}/>
+                  </div>
+
+              :  <div className='nlStandingsContainer'>
+                    <h1>NATIONAL LEAGUE</h1>
+                      <NLWestStandings data={data}/>
+                      <NLEastStandings data={data}/>
+                      <NLCentralStandings data={data}/>
+                </div>
+
+    }
+
+
     </>
   )
 }

@@ -1,0 +1,18 @@
+:root {
+  --navyBlue: #0c2c56;
+  --metallicSilver: #c4ced4;
+  --northwestGreen: #005c5c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.tableContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.tableContainer > table {
+  width: 85%;
+}

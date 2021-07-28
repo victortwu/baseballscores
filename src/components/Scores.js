@@ -11,6 +11,7 @@ const Scores = (props) => {
   const todayDateFormat = `${year}-${month}-${day}`
 
   const [data, setData] = useState([])
+  const [newDay, setNewDay] = useState(day)
   const query = `games?league=1&season=${year}&date=`
 
 
@@ -35,12 +36,24 @@ const Scores = (props) => {
     getScores(todayDateFormat)
   }, [])
 
-  console.log(data)
+  // function to increment date
 
+  // this kind of works,
+  const decrementDay =()=> {
+    console.log('decrementDay called')
+
+    setNewDay(newDay-1)
+    console.log(newDay)
+    return `${year}-${month}-${newDay}`
+  }
+
+
+console.log(data)
 return(
   <>
     <h1>Scores</h1>
-    <button onClick={()=> getScores('2021-07-31')}>get another date</button>
+
+    <button onClick={()=> getScores(decrementDay())}>back</button>
     {
       data.map(game=> {
 
@@ -55,10 +68,10 @@ return(
                   <td>{game.status.short}</td>
                 </tr>
                 <tr>
-                <td><img src={game.teams.home.logo}/></td>
-                <td>{game.teams.home.name}</td>
-                <td>{game.scores.home.total}</td>
-                <td>{game.time}</td>
+                  <td><img src={game.teams.home.logo}/></td>
+                  <td>{game.teams.home.name}</td>
+                  <td>{game.scores.home.total}</td>
+                  <td>{game.time}</td>
                 </tr>
               </tbody>
             </table>
