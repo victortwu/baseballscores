@@ -33,7 +33,7 @@ const ALEastStandings = (props) => {
 
                     return(
                       <tr key={key}>
-                        <td id='standingsLogo'><img src={team.team.logo}/></td>
+                        <td id='logoCell'><img src={team.team.logo}/></td>
                         <td>{team.team.name}</td>
                         <td>{team.games.win.total}</td>
                         <td>{team.games.lose.total}</td>

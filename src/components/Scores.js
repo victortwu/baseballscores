@@ -50,25 +50,26 @@ const Scores = (props) => {
 
 // console.log(data)
 return(
-  <>
+  <div className='scoresMain'>
     <h1>Scores</h1>
 
     <button onClick={()=> getScores(decrementDay())}>back</button>
+    <div className='scoreBoxContainer'>
     {
       data.map(game=> {
 
         return(
-          <div key={game.id}>
+          <div className='scoreBox' key={game.id}>
             <table>
               <tbody>
                 <tr>
-                  <td><img src={game.teams.away.logo}/></td>
+                  <td id='logoCell'><img src={game.teams.away.logo}/></td>
                   <td>{game.teams.away.name}</td>
                   <td>{game.scores.away.total}</td>
                   <td>{game.status.short}</td>
                 </tr>
                 <tr>
-                  <td><img src={game.teams.home.logo}/></td>
+                  <td id='logoCell'><img src={game.teams.home.logo}/></td>
                   <td>{game.teams.home.name}</td>
                   <td>{game.scores.home.total}</td>
                   <td>{game.time}</td>
@@ -81,8 +82,8 @@ return(
       })
 
     }
-
-  </>
+    </div>
+  </div>
   )
 }
 

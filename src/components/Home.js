@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+
 import '../App.css'
 
 const Home = (props) => {
@@ -38,23 +39,29 @@ const Home = (props) => {
   }, [])
 console.log(data)
   return(
-    <>
-    HOME PAGE
+
+    <div className='homeMain'>
+    {(data.length === 0) ? <h3>No score right now.</h3> : <h3>Today's score:</h3>}
+
+    <div>image1</div>
+    <div>image2</div>
+    <div>image3</div>
+
     {
       data.map(game=> {
 
         return(
-          <div key={game.id}>
+          <div className='scoreBox' key={game.id}>
             <table>
               <tbody>
                 <tr>
-                  <td><img src={game.teams.away.logo}/></td>
+                  <td id='logoCell'><img src={game.teams.away.logo}/></td>
                   <td>{game.teams.away.name}</td>
                   <td>{game.scores.away.total}</td>
                   <td>{game.status.short}</td>
                 </tr>
                 <tr>
-                  <td><img src={game.teams.home.logo}/></td>
+                  <td id='logoCell'><img src={game.teams.home.logo}/></td>
                   <td>{game.teams.home.name}</td>
                   <td>{game.scores.home.total}</td>
                   <td>{game.time}</td>
@@ -66,7 +73,10 @@ console.log(data)
 
       })
     }
-    </>
+    </div>
+
+
+
   )
 }
 

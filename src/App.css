@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 :root {
   --navyBlue: #0c2c56;
   --metallicSilver: #c4ced4;
@@ -8,16 +10,87 @@
   box-sizing: border-box;
 }
 
+body {
+  width: 100%;
+  height: 100vh;
+  color: var(--metallicSilver);
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.App {
+
+  /* display: grid;
+
+  grid-template-columns: 1fr;
+  grid-auto-rows: 0.3fr 1.3fr 1.3fr 1.3fr 0.3fr;
+  grid-template-areas:
+    'navBar'
+    'mainContent'
+    'mainContent'
+    'mainContent'
+    'footer' */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.navBar {
+  grid-area: navBar;
+  background: var(--metallicSilver);
+}
+
+.mainContent {
+  grid-area: mainContent;
+  background: var(--navyBlue);
+  /* display: relative; */
+
+
+}
+
+footer {
+  grid-area: footer;
+  width: 100%;
+  background-color: var(--northwestGreen);
+}
+
+
+
+
+/* ====== SCORE BOX ====== */
+
 .tableContainer {
   display: flex;
   justify-content: center;
 }
 
 .tableContainer > table {
-  width: 85%;
+  width: 95%;
 }
 
-#standingsLogo > img {
+#logoCell > img {
   width: 2rem;
   height: 2rem
 }
+
+/* @media only screen and (max-width: 500px) {
+  .App {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 0.3fr 1.3fr 1.3fr 1.3fr 0.3fr;
+    grid-template-areas:
+      'navBar'
+      'mainContent'
+      'mainContent'
+      'mainContent'
+      'footer'
+  }
+  .scoreBoxContainer {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+
+} */

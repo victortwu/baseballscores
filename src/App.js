@@ -4,6 +4,7 @@ import Navigation from './components/Navigation'
 import Home from './components/Home'
 import Standings from './components/Standings'
 import Scores from './components/Scores'
+import Footer from './components/Footer'
 import './App.css';
 
 const App =()=> {
@@ -15,19 +16,26 @@ const apiKey = process.env.REACT_APP_APIKEY
     <Router>
       <div className="App">
         <Navigation/>
-        <div className='mainContent'>
+
           <Switch>
               <Route exact path='/'>
+              <div className='mainContent'>
                 <Home apiKey={apiKey} baseURL={baseURL}/>
+              </div>
               </Route>
               <Route path='/standings'>
+              <div className='mainContent'>
                 <Standings apiKey={apiKey} baseURL={baseURL}/>
+              </div>
               </Route>
               <Route path='/scores'>
+              <div className='mainContent'>
                 <Scores apiKey={apiKey} baseURL={baseURL}/>
+              </div>
               </Route>
             </Switch>
-        </div>
+        
+        <Footer/>
       </div>
     </Router>
   );
