@@ -47,31 +47,47 @@ const Scores = (props) => {
     return `${year}-${month}-${newDay}`
   }
 
+const winnerStyle = {
+  color: 'white',
+  border: 'solid 1px teal',
+  borderRadius: '1rem'
+}
 
 // console.log(data)
 return(
   <div className='scoresMain'>
     <h1>Scores</h1>
 
-    <button onClick={()=> getScores(decrementDay())}>back</button>
+
     <div className='scoreBoxContainer'>
     {
       data.map(game=> {
 
+        const awayWin = game.status.long === 'Finished' && game.scores.away.total > game.scores.home.total
+
+        const homeWin = game.status.long === 'Finished' && game.scores.home.total > game.scores.away.total
+
+        let awayScore
+        awayWin ? awayScore = <td style={winnerStyle}>{game.scores.away.total}</td>
+                : awayScore = <td>{game.scores.away.total}</td>
+
+        let homeScore
+        homeWin ? homeScore = <td style={winnerStyle}>{game.scores.home.total}</td>
+                : homeScore = <td>{game.scores.home.total}</td>
         return(
           <div className='scoreBox' key={game.id}>
             <table>
               <tbody>
                 <tr>
                   <td id='logoCell'><img src={game.teams.away.logo}/></td>
-                  <td>{game.teams.away.name}</td>
-                  <td>{game.scores.away.total}</td>
-                  <td>{game.status.short}</td>
+                  <td id='teamNameCell'>{game.teams.away.name}</td>
+                  <td>{awayScore}</td>
+                  <td>{game.status.long}</td>
                 </tr>
                 <tr>
                   <td id='logoCell'><img src={game.teams.home.logo}/></td>
-                  <td>{game.teams.home.name}</td>
-                  <td>{game.scores.home.total}</td>
+                  <td id='teamNameCell'>{game.teams.home.name}</td>
+                  <td>{homeScore}</td>
                   <td>{game.time}</td>
                 </tr>
               </tbody>
@@ -88,3 +104,4 @@ return(
 }
 
 export default Scores
+// <button onClick={()=> getScores(decrementDay())}>back</button>

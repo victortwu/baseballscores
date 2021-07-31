@@ -4,6 +4,7 @@
   --navyBlue: #0c2c56;
   --metallicSilver: #c4ced4;
   --northwestGreen: #005c5c;
+  --boxShadow1: 0rem 0rem .3rem #2c4a6b;
 }
 
 * {
@@ -19,53 +20,142 @@ body {
 
 .App {
 
-  /* display: grid;
-
+  display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 0.3fr 1.3fr 1.3fr 1.3fr 0.3fr;
+  grid-auto-rows: 0.2fr 1.3fr 1.3fr 1.3fr 0.2fr;
   grid-template-areas:
     'navBar'
     'mainContent'
     'mainContent'
     'mainContent'
-    'footer' */
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 450px;
+    'footer';
   text-align: center;
-}
-
-.navBar {
-  grid-area: navBar;
-  background: var(--metallicSilver);
 }
 
 .mainContent {
   grid-area: mainContent;
   background: var(--navyBlue);
-  /* display: relative; */
-
-
 }
 
-footer {
-  grid-area: footer;
+.spacer {
   width: 100%;
-  background-color: var(--northwestGreen);
+  height: 25rem;
+}
+
+/* ========== NAVIGATION ========= */
+
+.navBar {
+  grid-area: navBar;
+  background: var(--metallicSilver);
+
+}
+
+.navBar > ul > li > a {
+  text-decoration: none;
+  color: var(--navyBlue);
 }
 
 
 
+/* ======== HOME ======= */
 
-/* ====== SCORE BOX ====== */
+.homeMain {
+  position: relative;
+
+}
+
+.homeScoreBoxContainer {
+  width: 100%;
+  height: 85vh;
+  position: absolute;
+  z-index: 100;
+}
+
+.player1 {
+  position: absolute;
+  width: 35%;
+  height: 65%;
+  background-color: gray;
+  transform: translateX(-50%);
+  left: 50%;
+  z-index: -1;
+}
+
+.player2 {
+  position: absolute;
+  width: 35%;
+  height: 65%;
+  background-color: red;
+  top: 8%;
+  left: 15%;
+  z-index: -2;
+}
+
+.player3 {
+  position: absolute;
+  width: 35%;
+  height: 65%;
+  background-color: green;
+  top: 12%;
+  right: 15%;
+  z-index: -3;
+}
+
+
+/* ====== STANDINGS ====== */
+
+.divisionContainer {
+  margin: 1rem;
+}
+
+.divisionContainer > h1 {
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+}
 
 .tableContainer {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
   display: flex;
   justify-content: center;
+  border-radius: .5rem;
+  box-shadow: var(--boxShadow1);
 }
 
 .tableContainer > table {
+  width: 95%;
+}
+
+.toggleButton {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: var(--metallicSilver);
+  transition: box-shadow 1s ease-out;
+
+}
+
+.toggleButton:hover {
+  box-shadow: var(--boxShadow1);
+  color: white;
+  cursor: pointer;
+  transition: .5s;
+}
+
+
+/* ========= SCORES / SCOREBOX ======= */
+
+.scoreBox {
+
+  margin: 1rem;
+  padding: .75rem;
+  border-radius: .5rem;
+  box-shadow: var(--boxShadow1);
+  z-index: 1000;
+}
+
+.scoreBox > table {
   width: 95%;
 }
 
@@ -74,23 +164,15 @@ footer {
   height: 2rem
 }
 
-/* @media only screen and (max-width: 500px) {
-  .App {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 0.3fr 1.3fr 1.3fr 1.3fr 0.3fr;
-    grid-template-areas:
-      'navBar'
-      'mainContent'
-      'mainContent'
-      'mainContent'
-      'footer'
-  }
-  .scoreBoxContainer {
-    display: flex;
-    flex-direction: column;
-
-  }
+#teamNameCell {
+  text-align: left;
+}
 
 
-} */
+/* ========== FOOTER ========= */
+
+footer {
+  grid-area: footer;
+  width: 100%;
+  background-color: var(--northwestGreen);
+}

@@ -35,7 +35,7 @@ return(
                   return(
                     <tr key={key}>
                       <td id='logoCell'><img src={team.team.logo}/></td>
-                      <td>{team.team.name}</td>
+                      <td id='teamNameCell'>{team.team.name}</td>
                       <td>{team.games.win.total}</td>
                       <td>{team.games.lose.total}</td>
                       <td>{team.games.win.percentage}</td>

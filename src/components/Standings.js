@@ -44,8 +44,8 @@ const Standings = (props) => {
     // console.log(data)
   return(
     <>
-    <button onClick={()=> toggleLeague()}>{
-      showAl ? 'National League' : 'American League'
+    <button className='toggleButton' onClick={()=> toggleLeague()}>{
+      showAl ? 'SEE N.L. STANDINGS' : 'SEE A.L. STANDINGS'
     }</button>
 
     {
