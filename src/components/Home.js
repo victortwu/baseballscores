@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
-
+import griffey from '../images/griffey.png'
+import ichiro from '../images/ichiro.png'
+import felix from '../images/felix.png'
 import '../App.css'
 
 const Home = (props) => {
@@ -52,50 +54,50 @@ const winnerStyle = {
 
 
 
-    <div className='homeScoreBoxContainer'>
-    <div className='player1'>image1</div>
-    <div className='player2'>image2</div>
-    <div className='player3'>image3</div>
-    {
-      data.map(game=> {
-        if ( game.teams.away.name === 'Seattle Mariners' || game.teams.home.name === 'Seattle Mariners') {
-          const awayWin = game.status.long === 'Finished' && game.scores.away.total > game.scores.home.total
+        <div className='homeScoreBoxContainer'>
+            <div className='felix'><img src={felix}/></div>
+            <div className='griffey'><img src={griffey}/></div>
+            <div className='ichiro'><img src={ichiro}/></div>
+            {
+              data.map(game=> {
+                if ( game.teams.away.name === 'Seattle Mariners' || game.teams.home.name === 'Seattle Mariners') {
+                  const awayWin = game.status.long === 'Finished' && game.scores.away.total > game.scores.home.total
 
-          const homeWin = game.status.long === 'Finished' && game.scores.home.total > game.scores.away.total
+                  const homeWin = game.status.long === 'Finished' && game.scores.home.total > game.scores.away.total
 
-          let awayScore
-          awayWin ? awayScore = <td style={winnerStyle}>{game.scores.away.total}</td>
-                  : awayScore = <td>{game.scores.away.total}</td>
+                  let awayScore
+                  awayWin ? awayScore = <td style={winnerStyle}>{game.scores.away.total}</td>
+                          : awayScore = <td>{game.scores.away.total}</td>
 
-          let homeScore
-          homeWin ? homeScore = <td style={winnerStyle}>{game.scores.home.total}</td>
-                  : homeScore = <td>{game.scores.home.total}</td>
-          return(
-            <div className='scoreBox' key={game.id}>
-              <table>
-                <tbody>
-                  <tr>
-                    <td id='logoCell'><img src={game.teams.away.logo}/></td>
-                    <td id='teamNameCell'>{game.teams.away.name}</td>
-                    <td>{awayScore}</td>
-                    <td>{game.status.long}</td>
-                  </tr>
-                  <tr>
-                    <td id='logoCell'><img src={game.teams.home.logo}/></td>
-                    <td id='teamNameCell'>{game.teams.home.name}</td>
-                    <td>{homeScore}</td>
-                    <td>{game.time}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          )
-        }
+                  let homeScore
+                  homeWin ? homeScore = <td style={winnerStyle}>{game.scores.home.total}</td>
+                          : homeScore = <td>{game.scores.home.total}</td>
+                  return(
+                    <div className='homeScoreBox' key={game.id}>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td id='logoCell'><img src={game.teams.away.logo}/></td>
+                            <td id='teamNameCell'>{game.teams.away.name}</td>
+                            <td>{awayScore}</td>
+                            <td>{game.status.long}</td>
+                          </tr>
+                          <tr>
+                            <td id='logoCell'><img src={game.teams.home.logo}/></td>
+                            <td id='teamNameCell'>{game.teams.home.name}</td>
+                            <td>{homeScore}</td>
+                            <td>{game.time}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  )
+                }
 
 
-      })
-    }
-    </div>
+              })
+            }
+        </div>
     </div>
 
 
