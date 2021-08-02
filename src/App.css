@@ -81,6 +81,10 @@ body {
   display: none;
 }
 
+.deskTopLinks {
+  display: none;
+}
+
 .links {
   height: 100%;
   display: flex;
@@ -88,7 +92,7 @@ body {
   justify-content: space-evenly;
 }
 
-.links > li > a {
+#navLink {
   text-decoration: none;
   color: var(--navyBlue);
 }
@@ -314,14 +318,21 @@ footer {
 
 /* =========== @MEDIA RULES =========== */
 
+/* for tiny phones */
 @media screen and (max-width: 400px) {
   .ichiro {
     left: 15%;
   }
 }
 
-@media screen and (min-width: > 500px) {
+/* desktop */
+@media (min-width: 501px) and (max-width: 2500px) {
   .hamburger {
     display: none;
+  }
+  .deskTopLinks {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
   }
 }

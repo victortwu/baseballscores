@@ -34,18 +34,21 @@ const Scores = (props) => {
 
   useEffect(()=> {
     getScores(todayDateFormat)
+    return () => {
+    
+    }
   }, [data])
 
   // function to increment date
 
   // this kind of works,
-  const decrementDay =()=> {
-    console.log('decrementDay called')
-
-    setNewDay(newDay-1)
-    console.log(newDay)
-    return `${year}-${month}-${newDay}`
-  }
+  // const decrementDay =()=> {
+  //   console.log('decrementDay called')
+  //
+  //   setNewDay(newDay-1)
+  //   console.log(newDay)
+  //   return `${year}-${month}-${newDay}`
+  // }
 
 const winnerStyle = {
   color: 'white',
