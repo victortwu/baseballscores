@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
 
 :root {
   --navyBlue: #0c2c56;
@@ -9,11 +10,12 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+
   width: 100%;
   height: 100vh;
   color: var(--metallicSilver);
@@ -24,7 +26,7 @@ body {
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 0.2fr 1.3fr 1.3fr 1.3fr 0.2fr;
+  grid-auto-rows: 5rem 1.3fr 1.3fr 1.3fr 0.2fr;
   grid-template-areas:
     'navBar'
     'mainContent'
@@ -48,30 +50,101 @@ body {
 /* ========== NAVIGATION ========= */
 
 .navBar {
+  position: relative;
+  padding-left: 1rem;
+  padding-right: 1rem;
   grid-area: navBar;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--metallicSilver);
+}
+
+.appLogo {
+  font-family: 'Style Script', cursive;
+  color: teal;
+}
+
+.dropMenu {
+  position: absolute;
+  background-color: rgba(196,206,212,.9);
+  top: 5rem;
+  right: 0;
+  width: 60%;
+  height: 15rem;
+  border-bottom-left-radius: .5rem;
+  animation: fadeIn .5s;
+  z-index: 100;
+}
+
+.hideMenu {
+  display: none;
+}
+
+.links {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.links > li > a {
+  text-decoration: none;
+  color: var(--navyBlue);
+}
+
+.links > li {
+  list-style: none;
+}
+
+.hamburger {
+  position: absolute;
+  width: 2.5rem;
+  height: 2rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
 
-.navBar > ul > li > a {
-  text-decoration: none;
-  color: var(--navyBlue);
+#hamburgerLine {
+  background-color: teal;
+  width: 100%;
+  height: .3rem;
+  border-radius: 2rem;
+}
+
+#xLine1, #xLine2{
+  position: absolute;
+  bottom: .7rem;
+  max-height: inherit;
+  background-color: teal;
+  width: 100%;
+  height: .3rem;
+  border-radius: 2rem;
+
+}
+
+#xLine1 {
+  transform: rotateZ(45deg);
+}
+
+#xLine2 {
+  transform: rotateZ(-45deg);
 }
 
 
 
 /* ======== HOME ======= */
 
-/* .homeMain {
-  position: relative;
-
-} */
 
 .homeScoreBoxContainer {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 100;
+  z-index: 1;
 }
 
 .homeScoreBox {
@@ -216,4 +289,14 @@ footer {
 @keyframes fadeIn {
   0% { opacity: 0 }
   100% { opacity: 1 }
+}
+
+@keyframes spinX {
+  0% {transform: rotate(0)}
+  100% {transform: rotate(360deg)}
+}
+
+@keyframes spinE {
+  0% {transform: rotate(0)}
+  100% {transform: rotate(360deg)}
 }

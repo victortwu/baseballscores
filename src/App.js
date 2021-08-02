@@ -12,6 +12,8 @@ const App =()=> {
 const baseURL = 'https://api-baseball.p.rapidapi.com/'
 
 const apiKey = process.env.REACT_APP_APIKEY
+
+
   return (
     <Router>
       <div className="App">

@@ -36,7 +36,7 @@ const Standings = (props) => {
 
     useEffect(()=> {
       getStandings()
-    }, [])
+    }, [data])
 
     const toggleLeague =()=> {
       showAl ? setShowAl(false) : setShowAl(true)

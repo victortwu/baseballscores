@@ -34,7 +34,7 @@ const Scores = (props) => {
 
   useEffect(()=> {
     getScores(todayDateFormat)
-  }, [])
+  }, [data])
 
   // function to increment date
 
