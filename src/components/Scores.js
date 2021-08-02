@@ -33,10 +33,9 @@ const Scores = (props) => {
   }
 
   useEffect(()=> {
+    const abort = new AbortController()
     getScores(todayDateFormat)
-    return () => {
-    
-    }
+    return () => abort.abort()
   }, [data])
 
   // function to increment date

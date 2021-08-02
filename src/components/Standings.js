@@ -35,7 +35,9 @@ const Standings = (props) => {
 
 
     useEffect(()=> {
+      const abort = new AbortController()
       getStandings()
+      return ()=> abort.abort()
     }, [data])
 
     const toggleLeague =()=> {

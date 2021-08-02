@@ -37,8 +37,10 @@ const Home = (props) => {
   }
 
   useEffect(()=> {
+    const abort = new AbortController()
     getScore(todayDateFormat)
-  }, [])
+    return ()=> abort.abort()
+  }, [data])
 
 const winnerStyle = {
   color: '#42eff5',
