@@ -25,6 +25,7 @@ const apiKey = process.env.REACT_APP_APIKEY
                 <Home apiKey={apiKey} baseURL={baseURL}/>
                 <div className='spacer'/>
               </div>
+
               </Route>
               <Route path='/standings'>
               <div className='mainContent'>

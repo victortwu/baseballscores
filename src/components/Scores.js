@@ -56,7 +56,7 @@ const winnerStyle = {
 // console.log(data)
 return(
   <div className='scoresMain'>
-    <h1>Scores</h1>
+    <h1>SCORES</h1>
 
 
     <div className='scoreBoxContainer'>

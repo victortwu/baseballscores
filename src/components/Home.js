@@ -39,17 +39,25 @@ const Home = (props) => {
   useEffect(()=> {
     getScore(todayDateFormat)
   }, [])
-console.log(data)
+
 const winnerStyle = {
-  color: 'white',
-  border: 'solid 1px teal',
-  borderRadius: '1rem'
+  color: '#42eff5',
+  backgroundColor: 'rgba(0,0,0,.4)',
+  borderRadius: '5px'
 }
+
+const scoreStyle = {
+  color: '#42eff5',
+  backgroundColor: 'rgba(255,255,255,.7)',
+  borderRadius: '5px'
+}
+
+const arrow = `<`
 
   return(
 
     <div className='homeMain'>
-    {(data.length === 0) ? <h3>No score right now.</h3> : <h3>Today's score:</h3>}
+    {(data.length === 0) ? <h3>No score right now...</h3> : <h1>Today's Score</h1>}
 
 
 
@@ -66,12 +74,12 @@ const winnerStyle = {
                   const homeWin = game.status.long === 'Finished' && game.scores.home.total > game.scores.away.total
 
                   let awayScore
-                  awayWin ? awayScore = <td style={winnerStyle}>{game.scores.away.total}</td>
-                          : awayScore = <td>{game.scores.away.total}</td>
+                  awayWin ? awayScore = <td style={winnerStyle}>{game.scores.away.total}<span>{arrow}</span></td>
+                          : awayScore = <td style={scoreStyle}>{game.scores.away.total}</td>
 
                   let homeScore
-                  homeWin ? homeScore = <td style={winnerStyle}>{game.scores.home.total}</td>
-                          : homeScore = <td>{game.scores.home.total}</td>
+                  homeWin ? homeScore = <td style={winnerStyle}>{game.scores.home.total}<span>{arrow}</span></td>
+                          : homeScore = <td style={scoreStyle}>{game.scores.home.total}</td>
                   return(
                     <div className='homeScoreBox' key={game.id}>
                       <table>

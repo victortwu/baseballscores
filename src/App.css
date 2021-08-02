@@ -139,6 +139,15 @@ body {
 
 /* ======== HOME ======= */
 
+.homeMain {
+  position: relative;
+  height: 100vh;
+}
+
+.homeMain > h1 {
+  font-family: 'Style Script', cursive;
+  margin-top: 2rem;
+}
 
 .homeScoreBoxContainer {
   width: 100%;
@@ -149,8 +158,11 @@ body {
 
 .homeScoreBox {
   background-color: rgba(255, 255, 255, 0.3);
-  margin: 1rem;
+  margin-top: 12rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   padding: .75rem;
+  color: #42eff5;
   border-radius: .5rem;
   animation: fadeIn 4s;
 }
@@ -165,14 +177,10 @@ body {
   height: 45%;
   transform: translateX(-50%);
   right: 28%;
-  bottom: 30%;
+  bottom: 20%;
   z-index: -1;
   animation: fadeIn 2s;
 
-}
-
-.ichiro > img {
-  height: 100%;
 }
 
 .griffey {
@@ -181,20 +189,15 @@ body {
   height: 70%;
   transform: translateX(-50%);
   left: 25%;
+  bottom: 20%;
   z-index: -2;
   animation: fadeIn 1s;
-}
-
-.griffey > img {
-  height: 100%;
 }
 
 .felix {
   position: absolute;
   width: 35%;
   height: 50%;
-
-
   right: 15%;
   bottom: 30%;
   z-index: -3;
@@ -202,7 +205,10 @@ body {
 
 }
 
-.felix > img {
+.felix > img,
+.griffey > img,
+.ichiro > img
+{
   height: 100%;
 }
 
@@ -251,6 +257,10 @@ body {
 
 /* ========= SCORES / SCOREBOX ======= */
 
+.scoresMain > h1 {
+  margin-top: 2rem;
+}
+
 .scoreBox {
 
   margin: 1rem;
@@ -284,7 +294,7 @@ footer {
 
 
 
-/* ========= ANIMATIONS ========= */
+/* ========= ANIMATION RULES ========= */
 
 @keyframes fadeIn {
   0% { opacity: 0 }
@@ -299,4 +309,19 @@ footer {
 @keyframes spinE {
   0% {transform: rotate(0)}
   100% {transform: rotate(360deg)}
+}
+
+
+/* =========== @MEDIA RULES =========== */
+
+@media screen and (max-width: 400px) {
+  .ichiro {
+    left: 15%;
+  }
+}
+
+@media screen and (min-width: > 500px) {
+  .hamburger {
+    display: none;
+  }
 }
