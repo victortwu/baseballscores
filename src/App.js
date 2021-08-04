@@ -20,7 +20,7 @@ const apiKey = process.env.REACT_APP_APIKEY
         <Navigation/>
 
           <Switch>
-              <Route exact path='/home'>
+              <Route exact path='/'>
               <div className='mainContent'>
                 <Home apiKey={apiKey} baseURL={baseURL}/>
                 <div className='spacer'/>
