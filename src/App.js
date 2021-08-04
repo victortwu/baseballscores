@@ -27,13 +27,13 @@ const apiKey = process.env.REACT_APP_APIKEY
               </div>
 
               </Route>
-              <Route path='/standings'>
+              <Route exact path='/standings'>
               <div className='mainContent'>
                 <Standings apiKey={apiKey} baseURL={baseURL}/>
                 <div className='spacer'/>
               </div>
               </Route>
-              <Route path='/scores'>
+              <Route exact path='/scores'>
               <div className='mainContent'>
                 <Scores apiKey={apiKey} baseURL={baseURL}/>
                 <div className='spacer'/>
