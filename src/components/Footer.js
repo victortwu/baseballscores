@@ -3,7 +3,7 @@ import '../App.css'
 const Footer = () => {
   return(
     <footer>
-    FOOTER
+    Built by Victor Twu
     </footer>
   )
 }
