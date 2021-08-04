@@ -43,15 +43,11 @@ const Home = (props) => {
   }, [data])
 
 const winnerStyle = {
-  color: '#42eff5',
-  backgroundColor: 'rgba(0,0,0,.4)',
-  borderRadius: '5px'
+  color: 'white',
 }
 
 const scoreStyle = {
   color: '#42eff5',
-  backgroundColor: 'rgba(255,255,255,.7)',
-  borderRadius: '5px'
 }
 
 const arrow = `<`
@@ -76,11 +72,11 @@ const arrow = `<`
                   const homeWin = game.status.long === 'Finished' && game.scores.home.total > game.scores.away.total
 
                   let awayScore
-                  awayWin ? awayScore = <td style={winnerStyle}>{game.scores.away.total}<span>{arrow}</span></td>
+                  awayWin ? awayScore = <td style={winnerStyle}>{game.scores.away.total} {arrow}</td>
                           : awayScore = <td style={scoreStyle}>{game.scores.away.total}</td>
 
                   let homeScore
-                  homeWin ? homeScore = <td style={winnerStyle}>{game.scores.home.total}<span>{arrow}</span></td>
+                  homeWin ? homeScore = <td style={winnerStyle}>{game.scores.home.total} {arrow}</td>
                           : homeScore = <td style={scoreStyle}>{game.scores.home.total}</td>
                   return(
                     <div className='homeScoreBox' key={game.id}>

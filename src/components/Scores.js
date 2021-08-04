@@ -50,12 +50,11 @@ const Scores = (props) => {
   // }
 
 const winnerStyle = {
-  color: 'white',
-  border: 'solid 1px teal',
-  borderRadius: '1rem'
+  color: '#42eff5',
 }
 
-// console.log(data)
+
+
 return(
   <div className='scoresMain'>
     <h1>SCORES</h1>
