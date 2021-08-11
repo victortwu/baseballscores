@@ -38,7 +38,7 @@ const Standings = (props) => {
       const abort = new AbortController()
       getStandings()
       return ()=> abort.abort()
-    }, [data])
+    }, [])
 
     const toggleLeague =()=> {
       showAl ? setShowAl(false) : setShowAl(true)

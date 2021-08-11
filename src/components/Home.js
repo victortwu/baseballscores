@@ -40,7 +40,7 @@ const Home = (props) => {
     const abort = new AbortController()
     getScore(todayDateFormat)
     return ()=> abort.abort()
-  }, [data])
+  }, [])
 
 const winnerStyle = {
   color: 'white',
