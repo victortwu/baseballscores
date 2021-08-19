@@ -12,7 +12,6 @@ const Navigation =()=> {
   }
 
   const toggleDropDown =()=> {
-    console.log('toggleDropDown called')
     dropLinks ? setDropLinks(false) : setDropLinks(true)
   }
 
@@ -27,7 +26,7 @@ const Navigation =()=> {
     <h1 className='appLogo'>ball game</h1>
 
       <div className='deskTopLinks'>
-          
+
             <div>{home}</div>
             <div>{standings}</div>
             <div>{scores}</div>

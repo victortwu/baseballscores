@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+
 const Scores = (props) => {
   const wholeDate = new Date()
   const year = wholeDate.getFullYear()
@@ -11,9 +12,8 @@ const Scores = (props) => {
   const todayDateFormat = `${year}-${month}-${day}`
 
   const [data, setData] = useState([])
-  const [newDay, setNewDay] = useState(day)
+  // const [newDay, setNewDay] = useState(day)
   const query = `games?league=1&season=${year}&date=`
-
 
   const getScores = (date) => {
     fetch(props.baseURL + query + date, {
@@ -53,7 +53,7 @@ const winnerStyle = {
   color: '#42eff5',
 }
 
-
+console.log(data)
 
 return(
   <div className='scoresMain'>

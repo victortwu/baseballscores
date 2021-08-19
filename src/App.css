@@ -337,18 +337,19 @@ footer {
 
 /* desktop */
 @media (min-width: 501px) and (max-width: 2500px) {
+
   .hamburger {
     display: none;
   }
+
   .deskTopLinks {
     width: 50%;
     display: flex;
     justify-content: space-between;
   }
+
   .scoreBoxContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  
-
 }
